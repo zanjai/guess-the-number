@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            font-family:'Times New Roman', Times, serif;
+            box-sizing: border-box;
+        }
+        body{
+            background-image: url('https://cutewallpaper.org/21/orange-gaming-wallpaper/Gaming-iPhone-Wallpaper-79-images-.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        section{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #valueOne{
+            width: 500px;
+            height: 6vh;
+            border-radius: 32px;
+            border: none;
+            padding-left: 15px;
+            font-size: 22px;
+        }
+        #Guess {
+            margin: 15px;
+            width: 120px;
+            height: 40px;
+            background-color: rgb(59, 33, 173);
+            color: white;
+            font-weight: bold;
+            font-size: 32px;
+            border-radius: 12px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h1 style="font-size: 32px;font-family: 'Times New Roman', Times, serif;background-color: rgb(163, 152, 152); margin: 15px;">CAN YOU GUESS THE NUMBER IN MY MIND🤔<span style="color:black;"><br><br><center>BETWEEN 1 TO 100...?</center></span></h1>
+    <input type="number" id="valueOne" placeholder="your number">
+    <button id="Guess" onclick="fun()">FIND</button>
+    <p id="demo" style="font-size: 24px; font-weight: 900;"></p>
+    <p id="lives" style="font-size: 18px; font-weight: 900; padding: 5px; background-color:white; color: rgb(223, 3, 3);"></p>
+</section>
+    <script>
+        value = Math.floor(Math.random()*100)
+        console.log(value)
+        i = 0
+        const fun = () => {
+        if(i == 9) window.location.href = 'page3.html'
+        if(value == document.getElementById("valueOne").value) window.location.href = 'correct.html'
+        else if(value > document.getElementById("valueOne").value) document.getElementById("demo").innerHTML = ` THE NUMBER IS LESSER😶<br><br> LIVES REMAINING:`
+        else if(value < document.getElementById("valueOne").value) document.getElementById("demo").innerHTML = ` THE NUMBER IS GREATER😑<br><br>LIVES REMAINING:`
+        document.getElementById("lives").innerHTML = "❤" + (10 - i)
+        i++;
+    }
+    </script>
+</body>
+</html>
